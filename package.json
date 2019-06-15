@@ -1,0 +1,14 @@
+{
+  "name": "boardgame-ratings",
+  "version": "1.0.0",
+  "description": "An app for rating boardgames",
+  "main": "index.js",
+  "repository": "https://github.com/rernst76/boardgame-ratings.git",
+  "author": "Ryan Ernst <rernst@iq-inc.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "apollo-server": "^2.6.3",
+    "graphql": "^14.3.1"
+  }
+}
