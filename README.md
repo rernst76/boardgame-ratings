@@ -9,3 +9,10 @@ A fun project to teach myself VSCode dev containers and Apollo + GraphQL
 * [Apollo Server Lambda Tutorial](https://www.apollographql.com/docs/apollo-server/deployment/lambda/#prerequisites)
 
 
+# Next Steps
+
+1. Look into using Docker Compose to set up a database container using mySQL or PostgreSQL
+1. Create a js script to create database tables.
+1. Create a js script to populate database with data using Faker.js
+
+
