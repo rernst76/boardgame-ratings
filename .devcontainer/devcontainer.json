@@ -2,10 +2,10 @@
     "name": "Boardgame Rating",
     "dockerComposeFile": "docker-compose.yml",
     "service": "app",
+    "shutdownAction": "stopCompose",
     "workspaceFolder": "/workspace",
     "extensions": [
         "dbaeumer.vscode-eslint"
     ],
-    "postCreateCommand": "yarn install",
-    "shutdownAction": "stopCompose"
+    "postCreateCommand": "yarn install"
 }

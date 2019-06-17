@@ -12,13 +12,28 @@ services:
       - ..:/workspace 
       - ~/.gitconfig:/root/.gitconfig
     command: sleep infinity
+
   db:
     image: postgres
+    secrets:
+      - postgres-user
+      - postgres-password
+      - postgres-db
     environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: BoardGameDev
+      POSTGRES_USER_FILE: /run/secrets/postgres-user
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres-password
+      POSTGRES_DB_FILE: /run/sectets/postgres-db
+
   adminer:
     image: adminer
     ports:
       - "8080:8080"
+  
+secrets:
+  postgres-user:
+    file: ./postgres-user.secret
+  postgres-password:
+    file: ./postgres-password.secret
+  postgres-db:
+    file: ./postgres-db.secret
 
