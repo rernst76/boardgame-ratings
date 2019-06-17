@@ -1,16 +1,17 @@
-version: 3.7
+version: "3.7"
 
 services:
   app:
     build:
       context: .
       dockerfile: Dockerfile
-      ports:
-        - "3000:3000"
-        - "4000:4000"
-      volumes:
-        - ~/.gitconfig:/root/.gitconfig
-      command: sleep infinity
+    ports:
+      - "3000:3000"
+      - "4000:4000"
+    volumes:
+      - ..:/workspace 
+      - ~/.gitconfig:/root/.gitconfig
+    command: sleep infinity
   db:
     image: postgres
     environment:
