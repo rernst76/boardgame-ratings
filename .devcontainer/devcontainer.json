@@ -1,7 +1,7 @@
 {
     "name": "Boardgame Rating",
-    "dockerFile": "Dockerfile",
-    "appPort": [3000, 4000],
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
     "extensions": [
         "dbaeumer.vscode-eslint"
     ],

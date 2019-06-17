@@ -1,0 +1,23 @@
+version: 3.7
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      ports:
+        - "3000:3000"
+        - "4000:4000"
+      volumes:
+        - ~/.gitconfig:/root/.gitconfig
+      command: sleep infinity
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: BoardGameDev
+  adminer:
+    image: adminer
+    ports:
+      - "8080:8080"
+
