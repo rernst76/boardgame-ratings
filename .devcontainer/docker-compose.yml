@@ -18,11 +18,9 @@ services:
     secrets:
       - postgres-user
       - postgres-password
-      - postgres-db
     environment:
       POSTGRES_USER_FILE: /run/secrets/postgres-user
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres-password
-      POSTGRES_DB_FILE: /run/sectets/postgres-db
 
   adminer:
     image: adminer
@@ -34,6 +32,3 @@ secrets:
     file: ./postgres-user.secret
   postgres-password:
     file: ./postgres-password.secret
-  postgres-db:
-    file: ./postgres-db.secret
-
