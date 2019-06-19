@@ -5,7 +5,7 @@ function getPassword() {
 }
 
 function getUser() {
-    return fs.readFile('../.devcontainer/postgres-user.secret', 'utf8');
+    return fs.readFileSync('../.devcontainer/postgres-user.secret', 'utf8');
 }
 
 module.exports.getPassword = getPassword;
