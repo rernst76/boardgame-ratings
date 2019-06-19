@@ -37,11 +37,43 @@ knex.schema.createTable('games', function (table) {
 // Create ratings
 knex.schema.createTable('ratings', function (table) {
     table.increments('rating_id');
+
+    table.integer('user').unsigned();
+    table.foreign('user').references('user_id').inTable('users');
+
     table.integer('game').unsigned();
     table.foreign('game').references('game_id').inTable('games');
+
     table.decimal('rating');
+
     table.text('comment');
 });
 
 // Create sessions
+knex.schema.createTable('sessions', function (table) {
+    table.increments('session_id');
 
+    table.integer('game').unsigned();
+    table.foreign('game').references('game_id').inTable('games');
+
+    table.dateTime('start_time');
+    table.dateTime('stop_time');
+
+    table.integer('num_players').unsigned();
+    table.boolean('active').notNullable().defaultTo(false);
+
+    table.timestamps();
+});
+
+// Create user_sessions
+knex.schema.createTable('user_sessions', function(table) {
+    table.integer('user').unsigned().notNullable();
+    table.foreign('user').references('user_id').inTable('users');
+
+    table.integer('session').unsigned().notNullable();
+    table.foreign('session').references('session_id').inTable('sessions');
+
+    table.text('notes');
+
+    table.primary(['user', 'session']);
+});
