@@ -10,11 +10,19 @@ exports.up = function(knex) {
             table.string('email').notNullable();
         }),
 
+        // Create designers
+        knex.schema.createTable('designers', function (table) {
+            table.increments('designer_id');
+            table.string('first_name');
+            table.string('last_name');
+        }),
+
         // Create games
         knex.schema.createTable('games', function (table) {
             table.increments('game_id');
             table.string('name').notNullable();
-            table.string('designer').notNullable();
+            table.integer('designer').unsigned();
+            table.foreign('designer').references('designer_id').inTable('designers');
             table.integer('min_players');
             table.integer('max_players').notNullable();
             table.integer('min_playtime');
@@ -74,7 +82,8 @@ exports.down = function(knex) {
         knex.schema.dropTable('sessions'),
         knex.schema.dropTable('ratings'),
         knex.schema.dropTable('games'),
-        knex.schema.dropTable('users')
+        knex.schema.dropTable('designers'),
+        knex.schema.dropTable('users'),
     ])
   
 };
